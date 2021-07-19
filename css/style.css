@@ -10,6 +10,10 @@ html, body {
   width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main-container {
   background: #f3e8f0;
 }

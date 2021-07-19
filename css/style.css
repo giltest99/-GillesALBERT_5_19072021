@@ -17,7 +17,7 @@ html, body {
 .navigation {
   height: 100px;
   margin-bottom: 2rem;
-  border: 1px dotted purple;
+  /* border: 1px dotted purple; */
 }
 .navigation__menu {
   /* background: #b87284; */
@@ -34,6 +34,31 @@ html, body {
 .navigation__menu i {
   font-size: 3rem;
   color: black;
+}
+
+.card {
+  height: 460px;
+  transform: scale(1);
+  transition: all 0.3s;
+  background: #763d4d;
+  color: white;
+  /* border-radius: 15px; */
+}
+
+.card:hover {
+  transform: scale(1.015);
+  cursor: pointer;
+}
+
+.card img {
+  height: 60%;
+  object-fit: cover;
+  object-position: 50% center;
+  /* border-radius: 15px 15px 0 0; */
+}
+
+.card-title, .card-price {
+  font-weight: 900;
 }
 
 /*# sourceMappingURL=style.css.map */

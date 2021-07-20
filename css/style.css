@@ -48,20 +48,17 @@ a {
   color: white;
   /* border-radius: 15px; */
 }
-
 .card:hover {
   transform: scale(1.015);
   cursor: pointer;
 }
-
 .card img {
   height: 60%;
   object-fit: cover;
   object-position: 50% center;
   /* border-radius: 15px 15px 0 0; */
 }
-
-.card-title, .card-price {
+.card-title {
   font-weight: 900;
 }
 

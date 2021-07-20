@@ -45,18 +45,20 @@ a {
     background: #763d4d;
     color: white;
     /* border-radius: 15px; */
-}
-.card:hover {
-    transform: scale(1.015);
-    cursor: pointer;
-}
-.card img {
-    height: 60%;
-    object-fit: cover;
-    object-position: 50% center;
-    /* border-radius: 15px 15px 0 0; */
+
+    &:hover {
+        transform: scale(1.015);
+        cursor: pointer;  
+    }
+    & img {
+        height: 60%;
+        object-fit: cover;
+        object-position: 50% center;
+        /* border-radius: 15px 15px 0 0; */
+    }
+    &-title{
+        font-weight: 900;
+    }
 }
 
-.card-title, .card-price {
-    font-weight: 900;
-}
+

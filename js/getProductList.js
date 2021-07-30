@@ -10,7 +10,7 @@ function getProducts(){
             let card = `
                 <div class="col-12 col-sm-6 col-lg-4" id="${product._id}"> 
                     <a href="http://localhost:3000/api/teddies/${product._id}">               
-                        <div class="card shadow-sm my-3">
+                        <div class="card shadow-sm my-3 carte">
                             <img src="${product.imageUrl}" alt="Référence ${product.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${product.name}</h5>

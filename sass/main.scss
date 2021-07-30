@@ -38,7 +38,7 @@ a {
     }  
 }
 
-.card {
+.carte {
     height: 460px;
     transform: scale(1);
     transition: all 0.3s;
@@ -60,5 +60,15 @@ a {
         font-weight: 900;
     }
 }
+.carte-static {
+    min-height: 500px;
+    position: relative;
+    background: #763d4d;
+    color: white;
 
+    & h2 {
+        text-align: center;
+        font-size: 3rem;
+    }
+}
 

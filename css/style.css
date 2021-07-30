@@ -40,7 +40,7 @@ a {
   color: black;
 }
 
-.card {
+.carte {
   height: 460px;
   transform: scale(1);
   transition: all 0.3s;
@@ -48,18 +48,29 @@ a {
   color: white;
   /* border-radius: 15px; */
 }
-.card:hover {
+.carte:hover {
   transform: scale(1.015);
   cursor: pointer;
 }
-.card img {
+.carte img {
   height: 60%;
   object-fit: cover;
   object-position: 50% center;
   /* border-radius: 15px 15px 0 0; */
 }
-.card-title {
+.carte-title {
   font-weight: 900;
+}
+
+.carte-static {
+  min-height: 500px;
+  position: relative;
+  background: #763d4d;
+  color: white;
+}
+.carte-static h2 {
+  text-align: center;
+  font-size: 3rem;
 }
 
 /*# sourceMappingURL=style.css.map */

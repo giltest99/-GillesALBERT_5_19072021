@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onorico - Ours en peluche</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container main-container">
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="navigation__menu">
+                <a href="/">
+                    <img src="img/logo.png" alt="logo Onorico">
+                </a>
+                <div>
+                    <!-- <a href="/" aria-label="Lien vers le panier" aria-label="Lien vers l'accueil">
+                        <i class="bi bi-house" title="Accueil"></i>
+                    </a> -->
+                    <a href="pages/panier.html" aria-label="Lien vers le panier">
+                        <i class="bi bi-cart3" title="Panier"></i>
+                    </a>  
+                </div>             
+                            
+            </div>
+        </nav>
+
+        
+    
+        <!-- Dynamic cards -->
+        <section class="row" id="">
+            
+            <div class="card mb-3 col-12">
+                <div class="row">
+                    <div class="col-lg-6">
+                            <img src="http://localhost:3000/images/teddy_1.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-lg-6 carte-static">
+                        <div class="card-body">
+                            <h3 class="card-title">Norbert</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="col-12">
+                                <label for="">Couleur</label>
+                                <select class="form-select mb-5 col-6" aria-label="Default select example">
+                                    <option value="tan">Tan</option>
+                                    <option value="chocolate">Chocolate</option>
+                                    <option value="black">Black</option>
+                                    <option value="white">White</option>
+                                </select>
+
+                                <label for="">Quantité</label>
+                                <select class="form-select mb-5 col-6" aria-label="Default select example">
+                                    <option  selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+
+                            
+                            <h2 class="card-title mb-5">29,00€</h2>
+
+                            <div class="d-grid gap-2mt-5">
+                                <button class="btn btn-success btn-lg bottom" type="button">Ajouter au panier</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        
+
+
+
+    </main>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- <script src="js/getProductList.js"></script> -->
+</body>
+</html>

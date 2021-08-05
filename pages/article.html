@@ -26,8 +26,9 @@
         </nav>
 
         <!-- Dynamic cards -->
-        <section class="row" id="app">
-        </section>
+        <div class="row" id="app">
+            
+        </div>
             <template id="card-template">
                 <div class="card mb-3 col-12">
                     <div class="row">
@@ -58,7 +59,7 @@
                                 <h2 class="card-title mb-5" id="prix"></h2>
     
                                 <div class="d-grid gap-2mt-5">
-                                    <button class="btn btn-success btn-lg bottom" type="button">Ajouter au panier</button>
+                                    <button class="btn btn-success btn-lg bottom" type="button" id="add-to-basket-btn">Ajouter au panier</button>
                                 </div>
                             </div>
                         </div>
@@ -80,5 +81,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="../js/loadProduct.js"></script>
+    <!-- <script src="../js/addToBasket.js"></script> -->
 </body>
 </html>

@@ -1,9 +1,31 @@
-function loadProduct() {
+// Add id to customer basket
+function addToBasket(){
   const params = new URLSearchParams(document.location.search);
-  //let params = new URLSearchParams(document.location.search.substring(1));
+  let id = params.get("id");
+  const basket = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
+  basket.push(id);
+  console.log(basket);
+  localStorage.setItem('ORINOCO_CUSTOMER_BASKET', JSON.stringify(basket));
+}
+// Check or create existing customer basket
+(function customerBasket(){
+  const basket = localStorage.getItem('ORINOCO_CUSTOMER_BASKET');
+  if(basket){
+    console.log(JSON.parse(basket));
+  }
+  else {
+    localStorage.setItem('ORINOCO_CUSTOMER_BASKET', '[]');
+  }
+  
+  //console.log('basket loaded')
+
+})();
+// Auto-load display article
+(function loadProduct() {
+  const params = new URLSearchParams(document.location.search);
   let id = params.get("id");
   console.log(id);
-
+  
   let url = `http://localhost:3000/api/teddies/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -24,14 +46,9 @@ function loadProduct() {
         document.querySelector("#app select").appendChild(opt);
       }
       document.querySelector("#image-pres").src = data.imageUrl;
-      //document.querySelector('#image-pres').style.height = '100%';
-
-      // Line to remove and to replace by style.css
-      //document.querySelector("#image-pres").style.objectFit = "cover"; 
-      //document.querySelector('#nom').textContent = data.name;
-      //document.querySelector('#description').textContent = data.description;
-      //document.querySelector('#prix').textContent = Number(data.price / 100).toFixed(2).replace('.',',') + '€';
-
+      document.getElementById('add-to-basket-btn').addEventListener('click', () => {
+        addToBasket(id);
+      })
       populate("#image-pres", data.imageUrl);
       populate("#nom", data.name);
       populate("#description", data.description);
@@ -41,11 +58,15 @@ function loadProduct() {
           .toFixed(2)
           .replace(".", ",") + "€"
       );
+      
     });
-}
+    
+})();
 
-loadProduct();
-
+// Add text content to an element
 function populate(selector, data) {
   document.querySelector(selector).textContent = data;
 }
+
+
+

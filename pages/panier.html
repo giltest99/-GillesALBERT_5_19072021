@@ -25,46 +25,55 @@
             </div>
         </nav>
 
+        <h2>Mes informations</h2>
+
         <!-- Customer infos -->
         <form>
 
             <div class="row mbt-3">
                 <div class="col-md-6">             
                     <label for="lastName" class="">Nom</label>
-                    <input type="text" class="form-control" id="lastName" aria-describedby="nom de famille" required autofocus>                                                         
+                    <input type="text" class="form-control" id="lastName" required autofocus>                                                         
                </div>
 
                 <div class="col-md-6">                  
                     <label for="firstName" class="">Prénom</label>
-                    <input type="text" class="form-control" id="firstName" aria-describedby="prénom" required>                                                         
+                    <input type="text" class="form-control" id="firstName" required>                                                         
                 </div>
             </div>
           
             <div class="row mbt-3">
                 <div class="col-md-9">
                     <label for="address" class="">Adresse</label>
-                    <input type="text" class="form-control" id="address" aria-describedby="adresse" required> 
+                    <input type="text" class="form-control" id="address" required> 
                 </div>
                 <div class="col-md-3">
-                    <label for="ville" class="">Ville</label>
-                    <input type="text" class="form-control" id="city" aria-describedby="ville" required> 
+                    <label for="city" class="">Ville</label>
+                    <input type="text" class="form-control" id="city" required> 
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col">
                     <label for="email" class="">Email</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="courriel" required> 
+                    <input type="email" class="form-control" id="email" required> 
                 </div>               
             </div>
 
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-success" aria-describedby="bouton enregistrer" id="submitCustomerInfos">Enregistrer</button>
+                    <button type="submit" class="btn btn-success" id="submitCustomerInfos">Enregistrer</button>
                     <!-- <button type="reset" class="btn btn-danger" aria-describedby="bouton effacer" id="resetForm">Effacer</button> -->
                 </div>
-                
+            </div>
         </form>
+
+        <h2 class="mt-5">Mon panier</h2>
+
+        <h3>Articles</h3>
+        <h4 id="articleList">None</h4>
+        <h3>Nombre d'articles</h3>
+        <h4 id="nbArticles">0</h4>
 
     </main>
     

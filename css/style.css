@@ -73,4 +73,12 @@ a {
   font-size: 3rem;
 }
 
+#image-pres {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% center;
+  padding: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

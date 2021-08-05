@@ -72,6 +72,11 @@ a {
   text-align: center;
   font-size: 3rem;
 }
+.carte-static option {
+  color: black;
+  font-weight: 900;
+  font-size: 1.2em;
+}
 
 #image-pres {
   width: 100%;

@@ -2,6 +2,9 @@
 function addToBasket() {
   const params = new URLSearchParams(document.location.search);
   const id = params.get("id");
+
+  customerBasket()
+;
   const basket = JSON.parse(localStorage.getItem("ORINOCO_CUSTOMER_BASKET"));
   basket.push(id);
   console.log(basket);
@@ -9,14 +12,14 @@ function addToBasket() {
 }
 
 // Check or create existing customer basket
-(function customerBasket() {
+function customerBasket() {
   const basket = localStorage.getItem("ORINOCO_CUSTOMER_BASKET");
   if (basket) {
     console.log(JSON.parse(basket));
   } else {
     localStorage.setItem("ORINOCO_CUSTOMER_BASKET", "[]");
   }
-})();
+};
 
 // Auto-load display article
 (function loadProduct() {
@@ -50,12 +53,7 @@ function addToBasket() {
       populate("#image-pres", data.imageUrl);
       populate("#nom", data.name);
       populate("#description", data.description);
-      populate(
-        "#prix",
-        Number(data.price / 100)
-          .toFixed(2)
-          .replace(".", ",") + "€"
-      );
+      populate("#prix",Number(data.price / 100).toFixed(2).replace(".", ",") + "€");
     });
 })();
 

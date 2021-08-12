@@ -2,16 +2,30 @@
 function addToBasket() {
   const params = new URLSearchParams(document.location.search);
   const id = params.get("id");
+  const url = `http://localhost:3000/api/teddies/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const clr = getColor();
+      console.log(clr);
+      const obj = {};
+      obj.id = id;
+      obj.name = data.name;
+      obj.price = data.price;
+      obj.color = clr;
 
-  customerBasket()
-;
-  const basket = JSON.parse(localStorage.getItem("ORINOCO_CUSTOMER_BASKET"));
-  basket.push(id);
-  console.log(basket);
-  localStorage.setItem("ORINOCO_CUSTOMER_BASKET", JSON.stringify(basket));
+      customerBasket();
+      
+      const basket = JSON.parse(localStorage.getItem("ORINOCO_CUSTOMER_BASKET"));
+      basket.push(obj);
+      console.log(basket);
+
+      localStorage.setItem("ORINOCO_CUSTOMER_BASKET", JSON.stringify(basket));
+    })
+    
 }
 
-// Check or create existing customer basket
+// Check or create existing customer basket : value = array
 function customerBasket() {
   const basket = localStorage.getItem("ORINOCO_CUSTOMER_BASKET");
   if (basket) {
@@ -20,6 +34,7 @@ function customerBasket() {
     localStorage.setItem("ORINOCO_CUSTOMER_BASKET", "[]");
   }
 };
+
 
 // Auto-load display article
 (function loadProduct() {
@@ -37,7 +52,7 @@ function customerBasket() {
       const card = cardTemplate.content.cloneNode(true);
       app.appendChild(card);
       const colors = data.colors;
-      console.log(colors, colors.length);
+      //console.log(colors, colors.length);
       for (color of colors) {
         let opt = document.createElement("OPTION");
         opt.value = color;
@@ -45,11 +60,9 @@ function customerBasket() {
         document.querySelector("#app select").appendChild(opt);
       }
       document.querySelector("#image-pres").src = data.imageUrl;
-      document
-        .getElementById("add-to-basket-btn")
-        .addEventListener("click", () => {
+      document.getElementById("add-to-basket-btn").addEventListener("click", () => {
           addToBasket(id);
-        });
+      });
       populate("#image-pres", data.imageUrl);
       populate("#nom", data.name);
       populate("#description", data.description);
@@ -60,4 +73,9 @@ function customerBasket() {
 // Add text content to an element
 function populate(selector, data) {
   document.querySelector(selector).textContent = data;
+}
+
+function getColor() {
+  var obj = document.getElementById("color-select");
+  return obj.options[obj.selectedIndex].text;
 }

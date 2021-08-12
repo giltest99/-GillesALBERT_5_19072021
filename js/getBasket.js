@@ -73,29 +73,53 @@ function order(){
 
     const customerInfos = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_INFOS'));
     const orderProducts = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
-    const obj = {
-        contact: customerInfos,
-        products: orderProducts
-    }
+    console.log('Customer infos', customerInfos);
+    console.log('order products', orderProducts);
 
-    fetch('http://localhost:3000/api/teddies/order', {
-        method: 'post',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        /* body: JSON.stringify({"contact":{"firstName":"gilles","lastName":"albert","address":"mon adresse","city":"canejan","email":"moi@exemple.com"},"products":["5be9c8541c9d440000665243"]})
-        }) */
-        body: JSON.stringify(obj)
-        })
-        .then(res=>res.json())
-        .then(data => {
-            console.log(data.orderId);
-            window.location.href = `confirmation-commande.html?orderId=${data.orderId}`;
+    if(customerInfos && customerInfos.firstName !== '' &&  customerInfos.lastName !== '' && customerInfos.address !== '' && customerInfos.city !== '' && email !== '' && orderProducts && orderProducts.length >= 1){
+
+
+        const obj = {
+            contact: customerInfos,
+            products: orderProducts
         }
-            
-            
+        console.log('Objet full', obj);
+    
+        let items = [];
+        for(item of obj.products){
+            items.push(item.id);
+        }
+        console.log('Items ids', items);
+        const bastketReq = {};
+        bastketReq.contact = customerInfos;
+        bastketReq.products = items;
+        //bastketReq = JSON.stringify(bastketReq);
+        console.log('str basket', bastketReq);
+    
+        // Check if bastketReq.contact && bastketReq.products => not empty
+    
+        fetch('http://localhost:3000/api/teddies/order', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            /* body: JSON.stringify({"contact":{"firstName":"gilles","lastName":"albert","address":"mon adresse","city":"canejan","email":"moi@exemple.com"},"products":["5be9c8541c9d440000665243"]})
+            }) */
+            body: JSON.stringify(bastketReq)
+            })
+            .then(res=>res.json())
+            .then(data => {
+                console.log(data.orderId);
+                console.log(data);
+                window.location.href = `confirmation-commande.html?orderId=${data.orderId}`;
+            }                      
         );
+
+    } else {
+        alert('Veuillez vérifier vos informations de contact ou le contenu de votre panier !')
+    }
+  
 }
 
 document.querySelector("#orderBtn").addEventListener("click", order);

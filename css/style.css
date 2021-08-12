@@ -21,10 +21,8 @@ a {
 .navigation {
   height: 100px;
   margin-bottom: 2rem;
-  /* border: 1px dotted purple; */
 }
 .navigation__menu {
-  /* background: #b87284; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -46,7 +44,6 @@ a {
   transition: all 0.3s;
   background: #763d4d;
   color: white;
-  /* border-radius: 15px; */
 }
 .carte:hover {
   transform: scale(1.015);
@@ -56,7 +53,6 @@ a {
   height: 60%;
   object-fit: cover;
   object-position: 50% center;
-  /* border-radius: 15px 15px 0 0; */
 }
 .carte-title {
   font-weight: 900;

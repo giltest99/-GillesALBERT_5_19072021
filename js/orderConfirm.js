@@ -11,6 +11,7 @@ function emptyBasket(){
     localStorage.setItem("ORINOCO_CUSTOMER_BASKET", '[]');
 }
 
+// Order action
 document.querySelector('#orderConfirmBtn').addEventListener('click', () => {
     emptyBasket();
     location.assign('/');

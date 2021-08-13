@@ -78,7 +78,6 @@ function order(){
 
     if(customerInfos && customerInfos.firstName !== '' &&  customerInfos.lastName !== '' && customerInfos.address !== '' && customerInfos.city !== '' && email !== '' && orderProducts && orderProducts.length >= 1){
 
-
         const obj = {
             contact: customerInfos,
             products: orderProducts
@@ -90,13 +89,11 @@ function order(){
             items.push(item.id);
         }
         console.log('Items ids', items);
+
         const bastketReq = {};
         bastketReq.contact = customerInfos;
         bastketReq.products = items;
-        //bastketReq = JSON.stringify(bastketReq);
         console.log('str basket', bastketReq);
-    
-        // Check if bastketReq.contact && bastketReq.products => not empty
     
         fetch('http://localhost:3000/api/teddies/order', {
             method: 'post',
@@ -104,7 +101,8 @@ function order(){
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-            /* body: JSON.stringify({"contact":{"firstName":"gilles","lastName":"albert","address":"mon adresse","city":"canejan","email":"moi@exemple.com"},"products":["5be9c8541c9d440000665243"]})
+            /* For test
+            body: JSON.stringify({"contact":{"firstName":"john","lastName":"doe","address":"my address","city":"bordeaux","email":"me@exemple.com"},"products":["5be9c8541c9d440000665243"]})
             }) */
             body: JSON.stringify(bastketReq)
             })
@@ -124,7 +122,3 @@ function order(){
 
 document.querySelector("#orderBtn").addEventListener("click", order);
 
-// Empty basket after order
-function emptyBasket(){
-    localStorage.setItem("ORINOCO_CUSTOMER_BASKET", '[]');
-}

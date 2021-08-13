@@ -21,11 +21,10 @@ function addToBasket() {
       console.log(basket);
 
       localStorage.setItem("ORINOCO_CUSTOMER_BASKET", JSON.stringify(basket));
-    })
-    
+    })    
 }
 
-// Check or create existing customer basket : value = array
+// Check & create existing customer basket : value = array
 function customerBasket() {
   const basket = localStorage.getItem("ORINOCO_CUSTOMER_BASKET");
   if (basket) {
@@ -75,6 +74,7 @@ function populate(selector, data) {
   document.querySelector(selector).textContent = data;
 }
 
+// Return article selected color
 function getColor() {
   var obj = document.getElementById("color-select");
   return obj.options[obj.selectedIndex].text;

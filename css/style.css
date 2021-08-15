@@ -29,6 +29,10 @@ tr, th, td {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 .button-cmd {
   min-width: 200px;
 }
@@ -121,6 +125,20 @@ tr, th, td {
 
 .delete-item i:hover {
   color: red;
+}
+
+.basket-amount-hide {
+  display: none;
+}
+
+.basket-amount-show {
+  display: block;
+}
+
+.return-arrow {
+  font-weight: 900;
+  font-size: 4rem;
+  color: #8d5cf8;
 }
 
 /*# sourceMappingURL=style.css.map */

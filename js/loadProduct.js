@@ -17,8 +17,7 @@ function addToBasket() {
 
       customerBasket();
       
-      const basket = JSON.parse(localStorage.getItem("ORINOCO_CUSTOMER_BASKET"));
-      
+      const basket = JSON.parse(localStorage.getItem("ORINOCO_CUSTOMER_BASKET"));     
       basket.push(obj);
       console.log(basket);
 
@@ -36,7 +35,6 @@ function customerBasket() {
     localStorage.setItem("ORINOCO_CUSTOMER_BASKET", "[]");
   }
 };
-
 
 // Auto-load display article
 (function loadProduct() {

@@ -101,9 +101,6 @@ function order(){
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-            /* For test
-            body: JSON.stringify({"contact":{"firstName":"john","lastName":"doe","address":"my address","city":"bordeaux","email":"me@exemple.com"},"products":["5be9c8541c9d440000665243"]})
-            }) */
             body: JSON.stringify(bastketReq)
             })
             .then(res=>res.json())
@@ -116,8 +113,7 @@ function order(){
 
     } else {
         alert('Veuillez vérifier vos informations de contact ou le contenu de votre panier !')
-    }
-  
+    } 
 }
 
 document.querySelector("#orderBtn").addEventListener("click", order);
@@ -126,42 +122,35 @@ document.querySelector("#orderBtn").addEventListener("click", order);
 (function displayBasketContent(){
     const basketContent = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
     console.log('basket : ', basketContent);
-    if(basketContent !== null && basketContent.length > 0){
-        
+    if(basketContent !== null && basketContent.length > 0){  
         document.querySelector('#default-basket').classList.add('basket-default-hide');
         const basketList = document.createElement('table');
         basketList.className = 'table table-light';
         const tr = document.createElement('tr');
         tr.innerHTML = `
-
             <th>Référence</th>
             <th>Couleur</th>
             <th>Prix</th>
             <th class="delete-icon">x</th>
-
         `;
         basketList.appendChild(tr);
         for(item of basketContent){
             let tr = document.createElement('tr');
             tr.id = item.uuid;
-            tr.innerHTML = `
-            
+            tr.innerHTML = `          
             <td>${item.name}</td>
             <td>${item.color}</td>   
             <td>${(Number(item.price)/100).toFixed(2).replace('.',',')}€</td>
             <td class="delete-item"><i class="bi bi-trash" title="Supprimer" id="del-${item.uuid}" onclick="removeItem(${item.uuid})"></i></td>
-
             `;
-            basketList.appendChild(tr);
-            
+            basketList.appendChild(tr);           
         }
         document.querySelector('#basket-container').appendChild(basketList);
         totalAmountBasket();
     }
     else {
         document.querySelector('#default-basket').classList.add('basket-default-show');
-    }
-    
+    }    
 })();
 
 // Remove basket item
@@ -184,6 +173,7 @@ function totalItems(){
     return basketContent.length;
 }
 
+// Calculate basket sum, format sum & display it
 function totalAmountBasket(){
     const basketContent = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
     let sum = 0;

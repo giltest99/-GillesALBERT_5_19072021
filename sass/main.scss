@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
 }
+// SCSS
 html, body {
     background: #f3e8f0;
     width: 100%; 
@@ -24,7 +25,9 @@ tr, th, td {
     padding: 0.5rem;
     text-align: center;
 }
-
+a {
+    text-decoration: none;
+}
 .button-cmd {
     min-width: 200px;
 }
@@ -53,7 +56,6 @@ tr, th, td {
         color: black;
     }  
 }
-
 .carte {
     height: 460px;
     transform: scale(1);
@@ -99,30 +101,31 @@ tr, th, td {
     object-position: 50% center;
     padding: 0;
 }
-
 .basket-default-show {
     display: block;
 }
 .basket-default-hide {
     display: none;
 }
-
 .delete-icon {
     color: red;
     font-weight: 900;
     font-size: 20px;
 }
-
 .delete-item i {
     cursor: pointer;
 }
 .delete-item i:hover {
     color: red;
 }
-
 .basket-amount-hide {
     display: none;
 }
 .basket-amount-show {
     display: block;
+}
+.return-arrow {
+    font-weight: 900;
+    font-size: 4rem;
+    color: #8d5cf8
 }

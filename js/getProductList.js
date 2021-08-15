@@ -1,6 +1,6 @@
 // Load products
 function getProducts() {
-  let url = "http://localhost:3000/api/teddies";
+  let url = 'http://localhost:3000/api/teddies';
   fetch(url)
     .then((res) => res.json())
     .then((data) => {

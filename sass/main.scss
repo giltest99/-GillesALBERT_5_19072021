@@ -12,6 +12,22 @@ html, body {
 a {
     text-decoration: none;
 }
+ul{
+    padding-left: 0;
+}
+li {
+    list-style: none;
+}
+tr, th, td {
+    background: white;
+    border: 1px solid #8d5cf8;
+    padding: 1rem;
+    text-align: center;
+}
+
+.button-cmd {
+    min-width: 200px;
+}
 .main-container {
     background: #f3e8f0;
 }
@@ -84,3 +100,15 @@ a {
     padding: 0;
 }
 
+.basket-default-show {
+    display: block;
+}
+.basket-default-hide {
+    display: none;
+}
+
+.delete-icon {
+    color: red;
+    font-weight: 900;
+    font-size: 20px;
+}

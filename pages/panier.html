@@ -62,30 +62,27 @@
 
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-success" id="submitCustomerInfos">Enregistrer</button>
+                    <button type="submit" class="btn btn-success button-cmd" id="submitCustomerInfos">Enregistrer</button>
                     <!-- <button type="reset" class="btn btn-danger" aria-describedby="bouton effacer" id="resetForm">Effacer</button> -->
                 </div>
             </div>
         </form>
 
-        <!--  -->
+        
+        <!-- Display basket content -->
+        <h2 class="mt-5 mb-3">Mon panier</h2>
 
-        <div class="row mt-5">
+        <div class="row mt-3 mb-3">
             <div class="col">
-                <button type="submit" class="btn btn-primary" id="orderBtn">Commander</button>               
+                <button type="submit" class="btn btn-primary button-cmd" id="orderBtn">Commander</button>               
             </div>
         </div>
 
-        <h2 class="mt-5">Mon panier</h2>
-
-        <h3>Articles</h3>
-        <h4 id="articleList">None</h4>
-        <h3>Nombre d'articles</h3>
-        <h4 id="nbArticles">0</h4>
-        <h3>Total</h3>
-        <h4 id="sumBasket">0</h4>
-
-        <!-- don't forget delete article button & function ! -->
+        <div class="row">
+            <div class="col" id="basket-container">
+                <h4 id="default-basket" class="basket-default-show">Pas d'article dans le panier</h4>
+            </div>
+        </div>
 
     </main>
     

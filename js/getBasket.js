@@ -122,3 +122,42 @@ function order(){
 
 document.querySelector("#orderBtn").addEventListener("click", order);
 
+// Load basket & display content 
+(function displayBasketContent(){
+    const basketContent = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
+    console.log('basket : ', basketContent);
+    if(basketContent !== null && basketContent.length > 0){
+        
+        document.querySelector('#default-basket').classList.add('basket-default-hide');
+        const basketList = document.createElement('table');
+        basketList.className = 'table table-light';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+
+            <th>Référence</th>
+            <th>Couleur</th>
+            <th>Prix</th>
+            <th class="delete-icon">x</th>
+
+        `;
+        basketList.appendChild(tr);
+        for(item of basketContent){
+            let tr = document.createElement('tr');
+            tr.id = item.id;
+            tr.innerHTML = `
+            
+            <td class="" id="">${item.name}</td>
+            <td class="" id="">${item.color}</td>   
+            <td class="" id="">${(Number(item.price)/100).toFixed(2)}</td>
+            <td class="" id="${item.id}"><i class="bi bi-trash"></i></td>
+
+            `;
+            basketList.appendChild(tr);
+        }
+        document.querySelector('#basket-container').appendChild(basketList);
+    }
+    else {
+        document.querySelector('#default-basket').classList.add('basket-default-show');
+    }
+    
+})();

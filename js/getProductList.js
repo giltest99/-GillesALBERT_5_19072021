@@ -5,7 +5,6 @@ function getProducts() {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-
       for (product of data) {
         let card = `
             <div class="col-12 col-sm-6 col-lg-4" id="${product._id}"> 
@@ -21,12 +20,11 @@ function getProducts() {
                 </a>
             </div>
         `;
-
         document.querySelector("#productsSection").innerHTML += card;
       }
     })
     .catch((error) => {
-      alert("error !");
+      console.log("error !");
     });
 }
 getProducts();

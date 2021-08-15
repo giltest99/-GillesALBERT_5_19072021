@@ -13,14 +13,17 @@ function addToBasket() {
       obj.name = data.name;
       obj.price = data.price;
       obj.color = clr;
+      obj.uuid = Date.now();
 
       customerBasket();
       
       const basket = JSON.parse(localStorage.getItem("ORINOCO_CUSTOMER_BASKET"));
+      
       basket.push(obj);
       console.log(basket);
 
       localStorage.setItem("ORINOCO_CUSTOMER_BASKET", JSON.stringify(basket));
+      alert('L\'article a été ajouté au panier');
     })    
 }
 

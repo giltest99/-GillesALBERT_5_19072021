@@ -143,21 +143,61 @@ document.querySelector("#orderBtn").addEventListener("click", order);
         basketList.appendChild(tr);
         for(item of basketContent){
             let tr = document.createElement('tr');
-            tr.id = item.id;
+            tr.id = item.uuid;
             tr.innerHTML = `
             
-            <td class="" id="">${item.name}</td>
-            <td class="" id="">${item.color}</td>   
-            <td class="" id="">${(Number(item.price)/100).toFixed(2)}</td>
-            <td class="" id="${item.id}"><i class="bi bi-trash"></i></td>
+            <td>${item.name}</td>
+            <td>${item.color}</td>   
+            <td>${(Number(item.price)/100).toFixed(2).replace('.',',')}€</td>
+            <td class="delete-item"><i class="bi bi-trash" title="Supprimer" id="del-${item.uuid}" onclick="removeItem(${item.uuid})"></i></td>
 
             `;
             basketList.appendChild(tr);
+            
         }
         document.querySelector('#basket-container').appendChild(basketList);
+        totalAmountBasket();
     }
     else {
         document.querySelector('#default-basket').classList.add('basket-default-show');
     }
     
 })();
+
+// Remove basket item
+function removeItem(id){
+    const basketContent = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
+    for(item of basketContent){
+        if(item.uuid === id){
+            basketContent.splice(item,1);
+            console.log('Article ', item.uuid, ' supprimé !');
+        }
+    }
+    console.log(basketContent);
+    localStorage.setItem('ORINOCO_CUSTOMER_BASKET', JSON.stringify(basketContent));
+    location.reload();
+    totalAmountBasket();
+}
+
+function totalItems(){
+    const basketContent = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
+    return basketContent.length;
+}
+
+function totalAmountBasket(){
+    const basketContent = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
+    let sum = 0;
+    for(item of basketContent){
+        sum += Number(item.price);
+    }
+    if(sum > 0){
+        sum = ((sum / 100).toFixed(2)).replace('.',',') + '€';
+        console.log(sum);
+        document.querySelector('#amount').innerHTML = sum;
+        document.querySelector('#amount').classList.add('basket-amount-show');
+    }
+    else {
+        console.log('panier vide !');
+        document.querySelector('#amount').classList.add('basket-amount-hide');
+    }  
+}

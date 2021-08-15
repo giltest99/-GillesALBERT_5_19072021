@@ -24,8 +24,8 @@ li {
 
 tr, th, td {
   background: white;
-  border: 1px solid #8d5cf8;
-  padding: 1rem;
+  border: 1px solid black;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -113,6 +113,14 @@ tr, th, td {
   color: red;
   font-weight: 900;
   font-size: 20px;
+}
+
+.delete-item i {
+  cursor: pointer;
+}
+
+.delete-item i:hover {
+  color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

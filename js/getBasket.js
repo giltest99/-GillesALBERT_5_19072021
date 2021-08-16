@@ -49,7 +49,7 @@ function storeCustomerInfos() {
 
         localStorage.setItem("ORINOCO_CUSTOMER_INFOS", JSON.stringify(obj));
         console.log("Infos saved !");
-        //alert("Données sauvegardées !");
+        alert("Informations sauvegardées !");
     } else {
         console.log("Invalid infos !");
     }

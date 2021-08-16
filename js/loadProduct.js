@@ -14,13 +14,10 @@ function addToBasket() {
       obj.price = data.price;
       obj.color = clr;
       obj.uuid = Date.now();
-
-      customerBasket();
-      
+      customerBasket();      
       const basket = JSON.parse(localStorage.getItem("ORINOCO_CUSTOMER_BASKET"));     
       basket.push(obj);
       console.log(basket);
-
       localStorage.setItem("ORINOCO_CUSTOMER_BASKET", JSON.stringify(basket));
       alert('L\'article a été ajouté au panier');
     })    
@@ -39,10 +36,10 @@ function customerBasket() {
 // Auto-load display article
 (function loadProduct() {
   const params = new URLSearchParams(document.location.search);
-  let id = params.get("id");
+  const id = params.get("id");
   console.log(id);
 
-  let url = `http://localhost:3000/api/teddies/${id}`;
+  const url = `http://localhost:3000/api/teddies/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {

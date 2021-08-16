@@ -24,7 +24,7 @@ li {
 
 tr, th, td {
   background: white;
-  border: 1px solid black;
+  border: 1px solid #ced4da;
   padding: 0.5rem;
   text-align: center;
 }

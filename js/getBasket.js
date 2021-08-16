@@ -70,31 +70,25 @@ document.querySelector("#submitCustomerInfos").addEventListener("click", storeCu
 
 // POST request : order id
 function order(){
-
     const customerInfos = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_INFOS'));
     const orderProducts = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
     console.log('Customer infos', customerInfos);
     console.log('order products', orderProducts);
-
     if(customerInfos && customerInfos.firstName !== '' &&  customerInfos.lastName !== '' && customerInfos.address !== '' && customerInfos.city !== '' && email !== '' && orderProducts && orderProducts.length >= 1){
-
         const obj = {
             contact: customerInfos,
             products: orderProducts
         }
-        console.log('Objet full', obj);
-    
-        let items = [];
+        console.log('Objet full', obj);   
+        const items = [];
         for(item of obj.products){
             items.push(item.id);
         }
         console.log('Items ids', items);
-
         const bastketReq = {};
         bastketReq.contact = customerInfos;
         bastketReq.products = items;
-        console.log('str basket', bastketReq);
-    
+        console.log('str basket', bastketReq);   
         fetch('http://localhost:3000/api/teddies/order', {
             method: 'post',
             headers: {
@@ -110,7 +104,6 @@ function order(){
                 window.location.href = `confirmation-commande.html?orderId=${data.orderId}`;
             }                      
         );
-
     } else {
         alert('Veuillez vérifier vos informations de contact ou le contenu de votre panier !')
     } 
@@ -156,14 +149,15 @@ document.querySelector("#orderBtn").addEventListener("click", order);
 // Remove basket item
 function removeItem(id){
     const basketContent = JSON.parse(localStorage.getItem('ORINOCO_CUSTOMER_BASKET'));
+    const newBasketContent = [];
     for(item of basketContent){
-        if(item.uuid === id){
-            basketContent.splice(item,1);
-            console.log('Article ', item.uuid, ' supprimé !');
+        if(item.uuid !== id){
+            newBasketContent.push(item);
+            console.log('Article uuid ', item.uuid, ' supprimé !');
         }
     }
-    console.log(basketContent);
-    localStorage.setItem('ORINOCO_CUSTOMER_BASKET', JSON.stringify(basketContent));
+    console.log(newBasketContent);
+    localStorage.setItem('ORINOCO_CUSTOMER_BASKET', JSON.stringify(newBasketContent));
     location.reload();
     totalAmountBasket();
 }

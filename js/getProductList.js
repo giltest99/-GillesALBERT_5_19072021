@@ -1,5 +1,5 @@
 // Load products
-function getProducts() {
+(function getProducts() {
   let url = 'http://localhost:3000/api/teddies';
   fetch(url)
     .then((res) => res.json())
@@ -24,7 +24,6 @@ function getProducts() {
       }
     })
     .catch((error) => {
-      console.log("error !");
+      console.log('error', error);
     });
-}
-getProducts();
+})();

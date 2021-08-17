@@ -19,7 +19,7 @@
 // Populate field
 function populateField(id, value) {
     document.querySelector(`#${id}`).value = value;
-  }
+}
   
 // Populate customer infos form fields
 function populateFormFields() {
@@ -29,6 +29,7 @@ function populateFormFields() {
     populateField("address", obj.address);
     populateField("city", obj.city);
     populateField("email", obj.email);
+    console.log('Customer infos : ', obj);
 }
 
 // Validate & store customer infos
@@ -152,10 +153,10 @@ function removeItem(id){
     const newBasketContent = [];
     for(item of basketContent){
         if(item.uuid !== id){
-            newBasketContent.push(item);
-            console.log('Article uuid ', item.uuid, ' supprimé !');
+            newBasketContent.push(item);          
         }
     }
+    console.log('Article uuid ', item.uuid, ' supprimé !');
     console.log(newBasketContent);
     localStorage.setItem('ORINOCO_CUSTOMER_BASKET', JSON.stringify(newBasketContent));
     location.reload();

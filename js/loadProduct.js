@@ -31,6 +31,8 @@
     })
     .catch((error) => {
       console.log('error', error);
+      console.log('Article non trouvé');
+      document.querySelector('#app').innerHTML = '<h3>Pas d\'article trouvé</h3>'
     });
 })();
 
